@@ -38,7 +38,7 @@ app.post("/register", async (req, resp) => {
       { expiresIn: "2h" }
     )
 
-    result = await client.query("UPDATE users SET token = $1 WHERE id = $2", [token, lastInsertedId])
+    // result = await client.query("UPDATE users SET token = $1 WHERE id = $2", [token, lastInsertedId])
     resp.status(201).json(result.rows[0])
   } catch(err) {
     console.log(err.message)
